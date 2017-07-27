@@ -1,12 +1,14 @@
 
+DROP DATABASE if exists "has_many_blogs";
 
 DROP USER if exists "has_many_user";
 
 CREATE USER has_many_user;
 
-DROP DATABASE if exists "has_many_blogs";
-
 CREATE DATABASE has_many_blogs WITH OWNER has_many_user;
+
+
+
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
@@ -27,3 +29,4 @@ updated_at TIMESTAMP NOT NULL,
 user_id INTEGER REFERENCES users(id)
 );
 
+\c postgres;
