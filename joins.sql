@@ -10,11 +10,10 @@ from posts
 INNER JOIN users ON posts.user_id = users.id
 WHERE users.id = 200;
 
+--4
+SELECT posts.*, users.username
+from posts
+INNER JOIN users ON posts.user_id = users.id
+WHERE users.first_name LIKE 'Norene' AND
+users.last_name LIKE 'Schmitt';
 
-
-
-
-    SELECT purchases.*, user.id, user.email
-    FROM purchases
-    INNER JOIN users ON purchases.user_id = user.id
-    WHERE users.id = 3
