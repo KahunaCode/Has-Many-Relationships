@@ -54,3 +54,12 @@ comments.body AS "comment_body"
 FROM comments
 INNER JOIN posts ON comments.post_id = posts.id
 WHERE comments.body LIKE '%USB%';
+
+--11
+SELECT users.first_name, users.last_name,
+posts.title AS "post_title",
+comments.body AS "comment_body"
+FROM users
+INNER JOIN posts ON posts.user_id = users.id
+INNER JOIN comments ON comments.post_id = posts.id
+WHERE comments.body LIKE '%matrix%';
