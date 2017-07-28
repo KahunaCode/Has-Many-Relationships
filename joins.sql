@@ -63,3 +63,12 @@ FROM users
 INNER JOIN posts ON posts.user_id = users.id
 INNER JOIN comments ON comments.post_id = posts.id
 WHERE comments.body LIKE '%matrix%';
+
+--12
+SELECT users.first_name, users.last_name,
+comments.body AS "comment_body",
+posts.*
+FROM users
+INNER JOIN posts ON posts.user_id = users.id
+INNER JOIN comments ON comments.post_id = posts.id
+WHERE comments.body LIKE '%SSL%' AND posts.content LIKE '%dolorum%';
