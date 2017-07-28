@@ -7,8 +7,10 @@ CREATE USER has_many_user;
 
 CREATE DATABASE has_many_blogs WITH OWNER has_many_user;
 
-\c has_many_blogs;
+\c has_many_blogs has_many_user;
 
+
+DROP TABLE if exists "users";
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
@@ -19,6 +21,8 @@ created_at TIMESTAMP DEFAULT now(),
 updated_at TIMESTAMP DEFAULT now()
 );
 
+DROP TABLE if exists "posts";
+
 CREATE TABLE posts (
 id SERIAL PRIMARY KEY,
 title VARCHAR(180) DEFAULT NULL,
@@ -28,6 +32,8 @@ created_at TIMESTAMP NOT NULL,
 updated_at TIMESTAMP NOT NULL,
 user_id INTEGER REFERENCES users(id)
 );
+
+DROP TABLE if exists comments;
 
 CREATE TABLE comments (
 id SERIAL PRIMARY KEY,
